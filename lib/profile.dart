@@ -145,36 +145,28 @@ class Profile extends StatelessWidget {
                   ),
 
                   SizedBox(height: 50),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SettingRow(
-                        iconPath: 'assets/icons/user.png',
-                        text: 'My Orders',
-                      ),
-                      SettingRow(
-                        iconPath: 'assets/icons/contrast.png',
-                        text: 'Theme',
-                      ),
-                      SettingRow(
-                        iconPath: 'assets/icons/messages.png',
-                        text: 'Messages',
-                      ),
-                      SettingRow(
-                        iconPath: 'assets/icons/language.png',
-                        text: 'Language',
-                      ),
-                      SettingRow(
-                        iconPath: 'assets/icons/settings.png',
-                        text: 'settings',
-                      ),
-                      SettingRow(
-                        iconPath: 'assets/icons/info.png',
-                        text: 'About',
-                      ),
-                    ],
+
+                  SettingRow(
+                    iconPath: 'assets/icons/user.png',
+                    text: 'My Orders',
                   ),
+                  SettingRow(
+                    iconPath: 'assets/icons/contrast.png',
+                    text: 'Theme',
+                  ),
+                  SettingRow(
+                    iconPath: 'assets/icons/messages.png',
+                    text: 'Messages',
+                  ),
+                  SettingRow(
+                    iconPath: 'assets/icons/language.png',
+                    text: 'Language',
+                  ),
+                  SettingRow(
+                    iconPath: 'assets/icons/settings.png',
+                    text: 'settings',
+                  ),
+                  SettingRow(iconPath: 'assets/icons/info.png', text: 'About'),
                 ],
               ),
             ),

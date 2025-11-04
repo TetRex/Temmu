@@ -1,26 +1,15 @@
+import 'package:e_commerce_app/components/provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
+import 'package:e_commerce_app/models/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatefulWidget {
-  final String productName;
-  final String imagePath;
-  final double currentPrice;
-  final double? oldPrice; // Optional old price
-  final int? discountPercent; // Optional discount percentage
-  final VoidCallback? onTap; // Optional tap handler
-  final VoidCallback? onFavoritePressed; // Optional favorite handler
+  final Product product;
+  final VoidCallback? onFavoritePressed;
 
-  const ProductCard({
-    super.key,
-    required this.productName,
-    required this.imagePath,
-    required this.currentPrice,
-    this.oldPrice,
-    this.discountPercent,
-    this.onTap,
-    this.onFavoritePressed,
-  });
+  const ProductCard({super.key, required this.product, this.onFavoritePressed});
 
   @override
   State<ProductCard> createState() => _ProductCardState();
@@ -32,7 +21,9 @@ class _ProductCardState extends State<ProductCard> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    final product = widget.product;
+    final favorites = context.watch<FavoritesProvider>();
+    final bool isFav = favorites.isFavorite(product.id);
     return GestureDetector(
       onTap: () => showNotReadySnackBar(context, message: 'Unknown error'),
       child: Container(
@@ -53,7 +44,7 @@ class _ProductCardState extends State<ProductCard> {
                   Row(
                     children: [
                       // Discount badge (only show if discount exists)
-                      if (widget.discountPercent != null)
+                      if (product.discountPercent != null)
                         Container(
                           margin: const EdgeInsets.only(top: 6, left: 12),
                           padding: const EdgeInsets.symmetric(
@@ -65,7 +56,7 @@ class _ProductCardState extends State<ProductCard> {
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: Text(
-                            '${widget.discountPercent}% OFF',
+                            '${product.discountPercent}% OFF',
                             style: GoogleFonts.interTight(
                               fontSize: 10,
                               fontWeight: FontWeight.bold,
@@ -94,16 +85,14 @@ class _ProductCardState extends State<ProductCard> {
                         width: 32,
                         child: IconButton(
                           padding: EdgeInsets.zero,
-                          onPressed: () {
-                            setState(() {
-                              isFavorite = !isFavorite;
-                            });
-                            widget.onFavoritePressed?.call();
-                          },
+                          onPressed: () =>
+                              context.read<FavoritesProvider>().toggle(product),
                           icon: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
+                            isFav ? Icons.favorite : Icons.favorite_border,
                             size: 18,
-                            color: isFavorite ? Colors.red : Colors.grey[700],
+                            color: isFavorite
+                                ? const Color.fromARGB(255, 0, 0, 0)
+                                : const Color.fromARGB(255, 187, 33, 33),
                           ),
                         ),
                       ),
@@ -114,7 +103,7 @@ class _ProductCardState extends State<ProductCard> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image(
-                        image: AssetImage(widget.imagePath),
+                        image: AssetImage(product.imagePath),
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -123,7 +112,7 @@ class _ProductCardState extends State<ProductCard> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(
-                      widget.productName,
+                      product.name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.interTight(
@@ -142,7 +131,7 @@ class _ProductCardState extends State<ProductCard> {
                     child: Row(
                       children: [
                         Text(
-                          '${widget.currentPrice.toStringAsFixed(2)}€',
+                          '${product.currentPrice.toStringAsFixed(2)}€',
                           style: GoogleFonts.interTight(
                             color: Colors.green[700],
                             fontSize: 16,
@@ -150,9 +139,9 @@ class _ProductCardState extends State<ProductCard> {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        if (widget.oldPrice != null)
+                        if (product.oldPrice != null)
                           Text(
-                            '${widget.oldPrice!.toStringAsFixed(2)}€',
+                            '${product.oldPrice!.toStringAsFixed(2)}€',
                             style: GoogleFonts.interTight(
                               color: Colors.grey[600],
                               fontSize: 13,

@@ -1,15 +1,23 @@
 import 'package:e_commerce_app/components/bottombar.dart';
 import 'package:e_commerce_app/components/categories.dart';
 import 'package:e_commerce_app/components/product_card.dart';
+import 'package:e_commerce_app/components/provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'components/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'components/ads.dart';
 import 'models/product_list.dart';
+import 'package:e_commerce_app/components/provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => FavoritesProvider(),
+      child: const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatefulWidget {
@@ -61,11 +69,7 @@ class _MainAppState extends State<MainApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ProductCard(
-                  productName: products[i].name,
-                  imagePath: products[i].imagePath,
-                  currentPrice: products[i].currentPrice,
-                  oldPrice: products[i].oldPrice,
-                  discountPercent: products[i].discountPercent,
+                  product: products[i],
                   onFavoritePressed: () {
                     setState(() {});
                   },
@@ -73,11 +77,7 @@ class _MainAppState extends State<MainApp> {
                 if (i + 1 < products.length) ...[
                   const SizedBox(width: 18),
                   ProductCard(
-                    productName: products[i + 1].name,
-                    imagePath: products[i + 1].imagePath,
-                    currentPrice: products[i + 1].currentPrice,
-                    oldPrice: products[i + 1].oldPrice,
-                    discountPercent: products[i + 1].discountPercent,
+                    product: products[i + 1],
                     onFavoritePressed: () {
                       setState(() {});
                     },

@@ -8,7 +8,6 @@ import 'components/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'components/ads.dart';
 import 'models/product_list.dart';
-import 'package:e_commerce_app/components/provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

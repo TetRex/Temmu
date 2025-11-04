@@ -15,14 +15,12 @@ class SettingRow extends StatelessWidget {
   const SettingRow({super.key, required this.iconPath, required this.text});
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Align(
       alignment: Alignment.centerLeft,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          shadowColor: bgcolor,
+          shadowColor: Colors.transparent,
           overlayColor: bgcolor,
           backgroundColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),

@@ -29,7 +29,10 @@ class SettingRow extends StatelessWidget {
                     shadowColor: bgcolor,
                     overlayColor: bgcolor,
                     backgroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 110, vertical: 20),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 110,
+                      vertical: 20,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
@@ -42,7 +45,7 @@ class SettingRow extends StatelessWidget {
                         size: 30,
                         color: Colors.black,
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(width: 10),
                       Text(
                         text,
                         style: GoogleFonts.interTight(
@@ -140,7 +143,7 @@ class Profile extends StatelessWidget {
                             // )
                           ],
                         ),
-                        SizedBox(width: 50,),
+                        SizedBox(width: 50),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -163,16 +166,31 @@ class Profile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 50,),
+                    SizedBox(height: 50),
                     SettingRow(
                       iconPath: 'assets/icons/user.png',
                       text: 'My Orders',
                     ),
-                    SettingRow(iconPath: 'assets/icons/contrast.png', text: 'Theme'),
-                    SettingRow(iconPath: 'assets/icons/messages.png', text: 'Messages'),
-                    SettingRow(iconPath: 'assets/icons/language.png', text: 'Language'),
-                    SettingRow(iconPath: 'assets/icons/settings.png', text: 'settings'),
-                    SettingRow(iconPath: 'assets/icons/info.png', text: 'About')
+                    SettingRow(
+                      iconPath: 'assets/icons/contrast.png',
+                      text: 'Theme',
+                    ),
+                    SettingRow(
+                      iconPath: 'assets/icons/messages.png',
+                      text: 'Messages',
+                    ),
+                    SettingRow(
+                      iconPath: 'assets/icons/language.png',
+                      text: 'Language',
+                    ),
+                    SettingRow(
+                      iconPath: 'assets/icons/settings.png',
+                      text: 'settings',
+                    ),
+                    SettingRow(
+                      iconPath: 'assets/icons/info.png',
+                      text: 'About',
+                    ),
                   ],
                 ),
               ),

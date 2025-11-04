@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/favorite.dart';
 import 'package:e_commerce_app/main.dart';
 import 'package:e_commerce_app/profile.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,17 @@ class BottomBar extends StatelessWidget {
             ),
             SizedBox(
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation1, animation2) =>
+                          const Favorite(),
+                      transitionDuration: Duration.zero,
+                      reverseTransitionDuration: Duration.zero,
+                    ),
+                  );
+                },
                 icon: ImageIcon(
                   AssetImage('assets/icons/heart.png'),
                   size: 30,

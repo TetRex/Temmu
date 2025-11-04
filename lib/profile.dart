@@ -31,8 +31,11 @@ class SettingRow extends StatelessWidget {
                     elevation: 0,
                     shadowColor: bgcolor,
                     overlayColor: bgcolor,
-                    backgroundColor: bgcolor ,
-                    padding: EdgeInsets.symmetric(horizontal: 110, vertical: 20),
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 110,
+                      vertical: 20,
+                    ), 
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(0),
                     ),
@@ -45,7 +48,7 @@ class SettingRow extends StatelessWidget {
                         size: 30,
                         color: Colors.black,
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(width: 10),
                       Text(
                         text,
                         style: GoogleFonts.interTight(

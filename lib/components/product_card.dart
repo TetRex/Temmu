@@ -31,6 +31,8 @@ class _ProductCardState extends State<ProductCard> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return GestureDetector(
       onTap: () => showNotReadySnackBar(context, message: 'Unknown error'),
       child: Container(
@@ -40,7 +42,7 @@ class _ProductCardState extends State<ProductCard> {
           children: [
             Container(
               height: 230,
-              width: 170,
+              width: screenWidth * 0.42,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 230, 230, 230),
                 borderRadius: BorderRadius.circular(16),

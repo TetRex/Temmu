@@ -26,19 +26,28 @@ class SettingRow extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    shadowColor: Colors.white,
-                    overlayColor: Colors.white,
+                    shadowColor: bgcolor,
+                    overlayColor: bgcolor,
                     backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(horizontal: 110, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0),
+                    ),
                   ),
                   onPressed: () => showNotReadySnackBar(context),
                   child: Row(
                     children: [
-                      ImageIcon(AssetImage(iconPath)),
+                      ImageIcon(
+                        AssetImage(iconPath),
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                      SizedBox(width: 10,),
                       Text(
                         text,
                         style: GoogleFonts.interTight(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: 30,
                         ),
                       ),
                     ],
@@ -46,7 +55,7 @@ class SettingRow extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            // SizedBox(height: 20),
           ],
         ),
       ],
@@ -131,7 +140,7 @@ class Profile extends StatelessWidget {
                             // )
                           ],
                         ),
-                        Text("        "),
+                        SizedBox(width: 50,),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -154,13 +163,16 @@ class Profile extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(''),
-                    Text(''),
-                    Text(''),
+                    SizedBox(height: 50,),
                     SettingRow(
                       iconPath: 'assets/icons/user.png',
                       text: 'My Orders',
                     ),
+                    SettingRow(iconPath: 'assets/icons/contrast.png', text: 'Theme'),
+                    SettingRow(iconPath: 'assets/icons/messages.png', text: 'Messages'),
+                    SettingRow(iconPath: 'assets/icons/language.png', text: 'Language'),
+                    SettingRow(iconPath: 'assets/icons/settings.png', text: 'settings'),
+                    SettingRow(iconPath: 'assets/icons/info.png', text: 'About')
                   ],
                 ),
               ),

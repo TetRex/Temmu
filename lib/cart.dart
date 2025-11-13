@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/main.dart';
+import 'package:e_commerce_app/components/bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,11 +8,11 @@ dynamic buttoncolor = Color.fromARGB(255, 100, 100, 100);
 
 // class text extends Text
 void main() {
-  runApp(Profile());
+  runApp(Cart());
 }
 
-class Profile extends StatelessWidget {
-  const Profile({super.key});
+class Cart extends StatelessWidget {
+  const Cart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,69 +59,7 @@ class Profile extends StatelessWidget {
           ),
         ),
 
-        bottomNavigationBar: BottomAppBar(
-          color: Colors.white,
-          child: Builder(
-            //Navigation.push can't be used without Builder because Navigator
-            builder: (context) => Row(
-              //operation requested with a context that does not include a Navigator
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                SizedBox(
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation1, animation2) =>
-                              const MainApp(),
-                          transitionDuration: Duration.zero,
-                          reverseTransitionDuration: Duration.zero,
-                        ),
-                      );
-                    },
-                    icon: ImageIcon(
-                      AssetImage('assets/icons/home.png'),
-                      size: 30,
-                      color: const Color.fromARGB(255, 120, 120, 120),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: ImageIcon(
-                      AssetImage('assets/icons/heart.png'),
-                      size: 30,
-                      color: const Color.fromARGB(255, 120, 120, 120),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: ImageIcon(
-                      AssetImage('assets/icons/shopping-cart.png'),
-                      size: 30,
-                      color: const Color.fromARGB(255, 120, 120, 120),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: ImageIcon(
-                      AssetImage('assets/icons/user.png'),
-                      size: 30,
-                      color: const Color.fromARGB(255, 255, 102, 0),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        bottomNavigationBar: BottomBar(currentPage: 'cart'),
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/components/bottombar.dart';
-import 'package:e_commerce_app/components/provider.dart';
+import 'package:e_commerce_app/providers/favorites_provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:e_commerce_app/models/product_list.dart';
 import 'package:flutter/material.dart';

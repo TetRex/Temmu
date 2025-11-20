@@ -1,19 +1,27 @@
-import 'package:e_commerce_app/components/bottombar.dart';
-import 'package:e_commerce_app/components/categories.dart';
-import 'package:e_commerce_app/components/product_card.dart';
-import 'package:e_commerce_app/components/provider.dart';
-import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:flutter/material.dart';
-import 'components/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'components/ads.dart';
+
 import 'models/product_list.dart';
 import 'package:provider/provider.dart';
 
+import 'package:e_commerce_app/providers/favorites_provider.dart';
+import 'package:e_commerce_app/providers/cart_provider.dart';
+
+import 'package:e_commerce_app/components/bottombar.dart';
+import 'package:e_commerce_app/components/categories.dart';
+import 'package:e_commerce_app/components/product_card.dart';
+import 'package:e_commerce_app/components/snackbar.dart';
+import 'components/ads.dart';
+import 'components/drawer.dart';
+
 void main() {
+
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => FavoritesProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider())
+      ],
       child: const MainApp(),
     ),
   );

@@ -1,66 +1,43 @@
-import 'package:e_commerce_app/components/bottombar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:e_commerce_app/components/bottombar.dart';
+import 'package:e_commerce_app/components/cart_item.dart';
+import 'package:e_commerce_app/providers/cart_provider.dart';
+
 
 dynamic bgcolor = Colors.white;
-dynamic fgcolor = Colors.deepOrange;
-dynamic buttoncolor = Color.fromARGB(255, 100, 100, 100);
-
-// class text extends Text
-void main() {
-  runApp(Cart());
-}
+// dynamic fgcolor = Colors.deepOrange;
+// dynamic buttoncolor = Color.fromARGB(255, 100, 100, 100);
 
 class Cart extends StatelessWidget {
   const Cart({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: bgcolor,
+    final cartItems = context.watch<CartProvider>().items;
 
-        appBar: AppBar(
-          scrolledUnderElevation: 0,
-          surfaceTintColor: Colors.transparent,
-          backgroundColor: Colors.white,
-          elevation: 0,
-          titleSpacing: 0,
-          leadingWidth: 70,
-          title: Text(
-            'My Profile',
-            style: GoogleFonts.interTight(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+    return Scaffold(
+      backgroundColor: bgcolor,
 
-          leading: Container(
-            // decoration: BoxDecoration(
-            //   color:bgcolor,
-            //   shape: BoxShape.circle,
-            // ),
-            margin: EdgeInsets.all(5),
-          ),
-          actions: [
-            Container(
-              decoration: BoxDecoration(color: bgcolor, shape: BoxShape.circle),
-              margin: EdgeInsets.all(1),
-              child: Row(),
-            ),
-          ],
+      appBar: AppBar(
+        title: Text(
+          'My Cart',
+          style: GoogleFonts.interTight(fontWeight: FontWeight.bold),
         ),
-
-        body: Container(
-          margin: const EdgeInsets.only(left: 0, right: 0),
-          child: ListView(
-            children: [Padding(padding: const EdgeInsets.all(10))],
-          ),
-        ),
-
-        bottomNavigationBar: BottomBar(currentPage: 'cart'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
       ),
+
+      body: ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: cartItems.length,
+              itemBuilder: (context, index) =>
+                  CartItem(product: cartItems[index]),
+            ),
+
+      bottomNavigationBar: BottomBar(currentPage: 'cart'),
     );
   }
 }

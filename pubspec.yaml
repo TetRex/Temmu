@@ -27,57 +27,58 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/user.png
-    - assets/icons/home.png
-    - assets/icons/heart.png
-    - assets/icons/shopping-cart.png
-    - assets/icons/search.png
-    - assets/icons/drawer.png
-    - assets/icons/hand-wave.png
-    - assets/icons/watch-smart.png
-    - assets/icons/tshirt.png
-    - assets/icons/bag.png
-    - assets/icons/boot.png
-    - assets/icons/glasses.png
-    - assets/icons/settings.png
-    - assets/icons/info.png
-    - assets/icons/messages.png
-    - assets/icons/contrast.png
-    - assets/icons/language.png
+    - assets/icons/
+    # - assets/icons/user.png
+    # - assets/icons/home.png
+    # - assets/icons/heart.png
+    # - assets/icons/shopping-cart.png
+    # - assets/icons/search.png
+    # - assets/icons/drawer.png
+    # - assets/icons/hand-wave.png
+    # - assets/icons/watch-smart.png
+    # - assets/icons/tshirt.png
+    # - assets/icons/bag.png
+    # - assets/icons/boot.png
+    # - assets/icons/glasses.png
+    # - assets/icons/settings.png
+    # - assets/icons/info.png
+    # - assets/icons/messages.png
+    # - assets/icons/contrast.png
+    # - assets/icons/language.png
 
+    - assets/images/
+    # - assets/images/ads1.png
+    # - assets/images/ads2.png
+    # - assets/images/ads3.png
 
-    - assets/images/ads1.png
-    - assets/images/ads2.png
-    - assets/images/ads3.png
+    - assets/products/tshirts/
+    # - assets/products/tshirts/t-shirt1.png
+    # - assets/products/tshirts/t-shirt2.png
+    # - assets/products/tshirts/t-shirt3.png
+    # - assets/products/tshirts/t-shirt4.png
+    # - assets/products/tshirts/t-shirt5.png
+    # - assets/products/tshirts/t-shirt6.png
 
+    - assets/products/watches/
+    # - assets/products/watches/apple-watch11.png
+    # - assets/products/watches/galaxy-watch-ultra.png
+    # - assets/products/watches/galaxy-watch7.png
+    # - assets/products/watches/apple-watch-se.png
+    # - assets/products/watches/pixel-watch.png
+    # - assets/products/watches/huawei-watch.png
 
-    - assets/products/tshirts/t-shirt1.png
-    - assets/products/tshirts/t-shirt2.png
-    - assets/products/tshirts/t-shirt3.png    
-    - assets/products/tshirts/t-shirt4.png  
-    - assets/products/tshirts/t-shirt5.png  
-    - assets/products/tshirts/t-shirt6.png  
-    
+    - assets/products/bags/
+    # - assets/products/bags/bag1.png
+    # - assets/products/bags/bag2.png
+    # - assets/products/bags/bag3.png
+    # - assets/products/bags/bag4.png
+    # - assets/products/bags/bag5.png
+    # - assets/products/bags/bag6.png
 
-    - assets/products/watches/apple-watch11.png
-    - assets/products/watches/galaxy-watch-ultra.png
-    - assets/products/watches/galaxy-watch7.png
-    - assets/products/watches/apple-watch-se.png
-    - assets/products/watches/pixel-watch.png
-    - assets/products/watches/huawei-watch.png
-
-
-    - assets/products/bags/bag1.png
-    - assets/products/bags/bag2.png
-    - assets/products/bags/bag3.png
-    - assets/products/bags/bag4.png
-    - assets/products/bags/bag5.png
-    - assets/products/bags/bag6.png
-
-
-    - assets/products/boots/boots1.png
-    - assets/products/boots/boots2.png
-    - assets/products/boots/boots3.png
-    - assets/products/boots/boots4.png
-    - assets/products/boots/boots5.png
-    - assets/products/boots/boots6.png
+    - assets/products/boots/
+    # - assets/products/boots/boots1.png
+    # - assets/products/boots/boots2.png
+    # - assets/products/boots/boots3.png
+    # - assets/products/boots/boots4.png
+    # - assets/products/boots/boots5.png
+    # - assets/products/boots/boots6.png

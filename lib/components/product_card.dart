@@ -1,4 +1,5 @@
-import 'package:e_commerce_app/components/provider.dart';
+import 'package:e_commerce_app/providers/favorites_provider.dart';
+import 'package:e_commerce_app/providers/cart_provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:e_commerce_app/models/product_list.dart';
 import 'package:flutter/material.dart';
@@ -85,8 +86,11 @@ class _ProductCardState extends State<ProductCard> {
                         width: 32,
                         child: IconButton(
                           padding: EdgeInsets.zero,
-                          onPressed: () =>
-                              context.read<FavoritesProvider>().toggle(product),
+                          onPressed: () {
+                              context.read<FavoritesProvider>().toggle(product);
+                              // Temporary methods to add a item to cart, delete after detail page is done
+                              context.read<CartProvider>().add(product);
+                          },
                           icon: Icon(
                             isFav ? Icons.favorite : Icons.favorite_border,
                             size: 18,

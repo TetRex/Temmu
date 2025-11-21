@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -121,7 +120,7 @@ class Categories_all extends StatelessWidget {
                   shadowColor: Colors.transparent,
                   overlayColor: Colors.white,
                 ),
-                onPressed: () => showNotReadySnackBar(context),
+                onPressed: () => onCategorySelected('all'),
                 child: Text(
                   'See all',
                   style: GoogleFonts.interTight(

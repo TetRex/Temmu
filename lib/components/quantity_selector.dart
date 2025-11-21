@@ -66,6 +66,7 @@ class _QuantitySelectorState extends State<QuantitySelector> {
         final double fontSize = actualHeight * 0.5;
         final double borderRadius = actualHeight * 0.15;
 
+        // ignore: unused_local_variable
         final bool canIncrement = _quantity < widget.maxQuantity;
 
         return Container(

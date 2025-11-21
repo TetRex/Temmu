@@ -118,7 +118,7 @@ class Categories_all extends StatelessWidget {
                   elevation: 0,
                   backgroundColor: Colors.white,
                   shadowColor: Colors.transparent,
-                  overlayColor: Colors.white,
+                  overlayColor: Colors.grey,
                 ),
                 onPressed: () => onCategorySelected('all'),
                 child: Text(

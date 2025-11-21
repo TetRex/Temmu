@@ -88,11 +88,6 @@ class CartItem extends StatelessWidget {
               bottom: 8,
               child: Container(
                 width: 88,
-                // decoration: BoxDecoration(
-                //   color: Colors.green,
-                //   border: Border.all(color: Colors.black),
-                //   borderRadius: BorderRadius.circular(8),
-                // ),
                 height: 36,
                 padding: const EdgeInsets.only(bottom: 12, right: 12),
                 child: QuantitySelector(
@@ -101,12 +96,6 @@ class CartItem extends StatelessWidget {
                 ),
               ),
             ),
-            // IconButton(
-            //   tooltip: 'Remove from carts',
-            //   icon: const Icon(Icons.delete, color: Colors.black),
-            //   onPressed: () => favorites.removeAll(),
-            // ),
-            // const SizedBox(width: 8),
           ],
         ),
       ),

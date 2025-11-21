@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/components/empty.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -30,11 +31,14 @@ class Cart extends StatelessWidget {
         elevation: 0,
       ),
 
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: cartItems.length,
-        itemBuilder: (context, index) => CartItem(product: cartItems[index]),
-      ),
+      body: cartItems.isEmpty
+          ? Empty(text: 'No Products in Cart', icon: Icons.add_business)
+          : ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: cartItems.length,
+              itemBuilder: (context, index) =>
+                  CartItem(product: cartItems[index]),
+            ),
 
       bottomNavigationBar: BottomBar(currentPage: 'cart'),
     );

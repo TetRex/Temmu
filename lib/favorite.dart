@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/components/bottombar.dart';
+import 'package:e_commerce_app/components/empty.dart';
 import 'package:e_commerce_app/providers/favorites_provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:e_commerce_app/models/product_list.dart';
@@ -112,26 +113,7 @@ class Favorite extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       body: favorites.isEmpty
-          ? Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    Icons.favorite_border,
-                    size: 72,
-                    color: Colors.grey,
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'No favorites yet',
-                    style: GoogleFonts.interTight(
-                      fontSize: 18,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ],
-              ),
-            )
+          ? Empty(text: 'No Favorites Added', icon: Icons.favorite_border)
           : ListView.builder(
               padding: const EdgeInsets.all(16),
               itemCount: favorites.length,

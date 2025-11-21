@@ -15,12 +15,11 @@ import 'components/ads.dart';
 import 'components/drawer.dart';
 
 void main() {
-
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
-        ChangeNotifierProvider(create: (_) => CartProvider())
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: const MainApp(),
     ),

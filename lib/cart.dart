@@ -5,7 +5,6 @@ import 'package:e_commerce_app/components/bottombar.dart';
 import 'package:e_commerce_app/components/cart_item.dart';
 import 'package:e_commerce_app/providers/cart_provider.dart';
 
-
 dynamic bgcolor = Colors.white;
 // dynamic fgcolor = Colors.deepOrange;
 // dynamic buttoncolor = Color.fromARGB(255, 100, 100, 100);
@@ -27,15 +26,15 @@ class Cart extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
+        shadowColor: Colors.transparent,
         elevation: 0,
       ),
 
       body: ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: cartItems.length,
-              itemBuilder: (context, index) =>
-                  CartItem(product: cartItems[index]),
-            ),
+        padding: const EdgeInsets.all(16),
+        itemCount: cartItems.length,
+        itemBuilder: (context, index) => CartItem(product: cartItems[index]),
+      ),
 
       bottomNavigationBar: BottomBar(currentPage: 'cart'),
     );

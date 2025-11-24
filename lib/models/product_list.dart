@@ -9,6 +9,8 @@ class Product {
   final String category;
   final int id;
   bool favorite;
+  final List<String> option;
+  final int rate;
 
   Product({
     required this.name,
@@ -19,6 +21,8 @@ class Product {
     required this.category,
     required this.id,
     this.favorite = false,
+    required this.option,
+    required this.rate,
   });
 }
 
@@ -30,6 +34,8 @@ final List<Product> _productList = [
     currentPrice: 509.90,
     category: 'watch',
     id: 1,
+    option: ['M1', 'M2', 'M3', 'M4'],
+    rate: 5,
   ),
   Product(
     name: 'Samsung Galaxy Watch Ultra',
@@ -37,6 +43,8 @@ final List<Product> _productList = [
     currentPrice: 599.99,
     category: 'watch',
     id: 2,
+    option: ['U1', 'U2', 'U3', 'U4'],
+    rate: 5,
   ),
   Product(
     name: 'Apple Watch SE Gen 2',
@@ -44,6 +52,8 @@ final List<Product> _productList = [
     currentPrice: 200.99,
     category: 'watch',
     id: 3,
+    option: ['S1', 'S2', 'S3'],
+    rate: 4,
   ),
   Product(
     name: 'Samsung Galaxy Watch 7',
@@ -51,6 +61,8 @@ final List<Product> _productList = [
     currentPrice: 200.99,
     category: 'watch',
     id: 4,
+    option: ['G1', 'G2', 'G3', 'G4', 'G5'],
+    rate: 5,
   ),
   Product(
     name: 'Google Pixel Watch 3',
@@ -58,6 +70,8 @@ final List<Product> _productList = [
     currentPrice: 319.90,
     category: 'watch',
     id: 5,
+    option: ['P1', 'P2', 'P3'],
+    rate: 4,
   ),
   Product(
     name: 'Huawei Watch GT 4',
@@ -65,6 +79,8 @@ final List<Product> _productList = [
     currentPrice: 249.90,
     category: 'watch',
     id: 6,
+    option: ['H1', 'H2', 'H3', 'H4'],
+    rate: 4,
   ),
 
   // T-Shirts
@@ -76,6 +92,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'tshirt',
     id: 7,
+    option: ['48', '50', '52', '54', '56', '58'],
+    rate: 5,
   ),
   Product(
     name: 'Essential Black T-Shirt',
@@ -85,6 +103,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'tshirt',
     id: 8,
+    option: ['36', '38', '40', '42', '44', '46', '48'],
+    rate: 5,
   ),
   Product(
     name: 'Heather Grey Crew Neck',
@@ -94,6 +114,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'tshirt',
     id: 9,
+    option: ['38', '40', '42'],
+    rate: 4,
   ),
   Product(
     name: 'Navy Blue Premium Tee',
@@ -101,6 +123,8 @@ final List<Product> _productList = [
     currentPrice: 19.99,
     category: 'tshirt',
     id: 10,
+    option: ['36', '38', '40', '42', '44', '46'],
+    rate: 5,
   ),
   Product(
     name: 'Soft Pink Casual Shirt',
@@ -110,6 +134,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'tshirt',
     id: 11,
+    option: ['34', '36', '38'],
+    rate: 3,
   ),
   Product(
     name: 'Forest Green V-Neck',
@@ -117,6 +143,8 @@ final List<Product> _productList = [
     currentPrice: 19.99,
     category: 'tshirt',
     id: 12,
+    option: ['38', '40', '42', '44', '46'],
+    rate: 4,
   ),
 
   // Bags
@@ -128,6 +156,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 13,
+    option: ['Classic Black', 'Chestnut Brown', 'Desert Sand'],
+    rate: 5,
   ),
   Product(
     name: 'Vintage Messenger Bag',
@@ -137,6 +167,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 14,
+    option: ['Vintage Brown', 'Coal Grey', 'Midnight Navy', 'Forest Green'],
+    rate: 5,
   ),
   Product(
     name: 'Modern Crossbody Purse',
@@ -146,6 +178,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 15,
+    option: ['Slate', 'Mahogany', 'Pearl', 'Amber Rose', 'Lapis'],
+    rate: 5,
   ),
   Product(
     name: 'Luxury Designer Handbag',
@@ -155,6 +189,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 16,
+    option: ['Monogram Edition', 'Ivory Luxe', 'Obsidian', 'Rose Gold', 'Sable'],
+    rate: 4,
   ),
   Product(
     name: 'Travel Backpack Pro',
@@ -164,6 +200,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 17,
+    option: ['Explorer Grey', 'Ocean Blue', 'Midnight Black', 'Canyon', 'Sierra'],
+    rate: 5,
   ),
   Product(
     name: 'Business Briefcase Elite',
@@ -173,6 +211,8 @@ final List<Product> _productList = [
     discountPercent: 50,
     category: 'bag',
     id: 18,
+    option: ['Executive Black', 'Carbon Grey', 'Espresso Brown'],
+    rate: 5,
   ),
   Product(
     name: 'Urban Combat Boots',
@@ -182,6 +222,8 @@ final List<Product> _productList = [
     discountPercent: 40,
     category: 'boot',
     id: 19,
+    option: ['40', '41', '42', '43', '44', '45'],
+    rate: 5,
   ),
   Product(
     name: 'Chelsea Leather Boots',
@@ -189,6 +231,8 @@ final List<Product> _productList = [
     currentPrice: 129.99,
     category: 'boot',
     id: 20,
+    option: ['38', '39', '40', '41', '42', '43'],
+    rate: 4,
   ),
   Product(
     name: 'Hiking Trail Boots Pro',
@@ -198,6 +242,8 @@ final List<Product> _productList = [
     discountPercent: 27,
     category: 'boot',
     id: 21,
+    option: ['39', '40', '41', '42', '43', '44', '45'],
+    rate: 5,
   ),
   Product(
     name: 'Classic Ankle Boots',
@@ -207,6 +253,8 @@ final List<Product> _productList = [
     discountPercent: 25,
     category: 'boot',
     id: 22,
+    option: ['36', '37', '38'],
+    rate: 3,
   ),
   Product(
     name: 'Winter Snow Boots',
@@ -216,6 +264,8 @@ final List<Product> _productList = [
     discountPercent: 40,
     category: 'boot',
     id: 23,
+    option: ['40', '41', '42', '43', '44', '45', '46'],
+    rate: 5,
   ),
   Product(
     name: 'Designer Suede Boots',
@@ -223,6 +273,8 @@ final List<Product> _productList = [
     currentPrice: 189.99,
     category: 'boot',
     id: 24,
+    option: ['39', '40', '41', '42', '43', '44'],
+    rate: 3,
   ),
 ];
 

@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(
-    const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ProductDetailsPage(),
-    ),
-  );
-}
+import 'package:e_commerce_app/models/product_list.dart';
 
 class ProductDetailsPage extends StatefulWidget {
-  const ProductDetailsPage({super.key});
+  const ProductDetailsPage({super.key, required this.product});
+
+  final Product product;
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
@@ -18,8 +12,7 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   // Save selected size index
-  int selectedSizeIndex = 2;
-  final List<String> sizes = ["35", "36", "37", "38", "39", "40"];
+  int selectedSizeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +38,21 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       left: 20,
                       child: IconButton(
                         icon: const Icon(Icons.arrow_back, color: Colors.black),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                     ),
                     // Image of watch
                     Positioned(
-                      bottom: 20,
-                      child: Image.network(
-                        'https://purepng.com/public/uploads/large/apple-watch-pcq.png', // Link ảnh mẫu
-                        height: 250,
-                        fit: BoxFit.contain,
+                      bottom: 80,
+                      child: SizedBox(
+                        width: 200,
+                        height: 220,
+                        child: Image(
+                          image: AssetImage(widget.product.imagePath),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     // Indicator
@@ -98,9 +96,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 children: [
                   const SizedBox(height: 20), // Color Picker
                   // Product name
-                  const Text(
-                    "Apple Watch Series 6",
-                    style: TextStyle(
+                  Text(
+                    widget.product.name,
+                    style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,
@@ -109,15 +107,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   const SizedBox(height: 8),
 
                   // Vote rate
-                  Row(
-                    children: [
-                      const Icon(Icons.star, color: Colors.amber, size: 20),
-                      const Icon(Icons.star, color: Colors.amber, size: 20),
-                      const Icon(Icons.star, color: Colors.amber, size: 20),
-                      const Icon(Icons.star, color: Colors.amber, size: 20),
-                      const Icon(Icons.star, color: Colors.grey, size: 20),
-                    ],
-                  ),
+                  _buildStarRating(widget.product.rate),
                   const SizedBox(height: 16),
 
                   // Price and stock status
@@ -125,24 +115,29 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           children: [
                             TextSpan(
-                              text: "599.99€",
+                              text:
+                                  '${widget.product.currentPrice.toStringAsFixed(2)}€',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),
                             ),
-                            TextSpan(
-                              text: "699.99€",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey,
-                                decoration: TextDecoration.lineThrough,
+                            if (widget.product.oldPrice != null) ...[
+                              TextSpan(text: '   '), // Add space
+                              TextSpan(
+                                text:
+                                    '${widget.product.oldPrice?.toStringAsFixed(2)}€',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
                               ),
-                            ),
+                            ],
                           ],
                         ),
                       ),
@@ -173,7 +168,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: List.generate(sizes.length, (index) {
+                      children: List.generate(widget.product.option.length, (index) {
                         return GestureDetector(
                           onTap: () {
                             setState(() {
@@ -198,7 +193,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                               ),
                             ),
                             child: Text(
-                              sizes[index],
+                              widget.product.option[index],
                               style: TextStyle(
                                 color: selectedSizeIndex == index
                                     ? primaryOrange
@@ -307,6 +302,18 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             ? const Icon(Icons.check, size: 14, color: Colors.white)
             : null,
       ),
+    );
+  }
+
+  Widget _buildStarRating(int rating) {
+    return Row(
+      children: List.generate(5, (index) {
+        return Icon(
+          Icons.star,
+          color: index < rating ? Colors.amber : Colors.grey,
+          size: 20,
+        );
+      }),
     );
   }
 }

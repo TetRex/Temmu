@@ -1,6 +1,6 @@
+import 'package:e_commerce_app/product_detail.dart';
 import 'package:e_commerce_app/providers/favorites_provider.dart';
 import 'package:e_commerce_app/providers/cart_provider.dart';
-import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:e_commerce_app/models/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,7 +26,17 @@ class _ProductCardState extends State<ProductCard> {
     final favorites = context.watch<FavoritesProvider>();
     final bool isFav = favorites.isFavorite(product.id);
     return GestureDetector(
-      onTap: () => showNotReadySnackBar(context, message: 'Unknown error'),
+      onTap: () {
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) =>
+                ProductDetailsPage(product: product),
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+          ),
+        );
+      },
       child: Container(
         margin: const EdgeInsets.only(),
         child: Column(
@@ -87,9 +97,9 @@ class _ProductCardState extends State<ProductCard> {
                         child: IconButton(
                           padding: EdgeInsets.zero,
                           onPressed: () {
-                              context.read<FavoritesProvider>().toggle(product);
-                              // Temporary methods to add a item to cart, delete after detail page is done
-                              context.read<CartProvider>().add(product);
+                            context.read<FavoritesProvider>().toggle(product);
+                            // Temporary methods to add a item to cart, delete after detail page is done
+                            context.read<CartProvider>().add(product);
                           },
                           icon: Icon(
                             isFav ? Icons.favorite : Icons.favorite_border,

@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/product_detail.dart';
 import 'package:e_commerce_app/providers/favorites_provider.dart';
-import 'package:e_commerce_app/providers/cart_provider.dart';
 import 'package:e_commerce_app/models/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -98,8 +97,6 @@ class _ProductCardState extends State<ProductCard> {
                           padding: EdgeInsets.zero,
                           onPressed: () {
                             context.read<FavoritesProvider>().toggle(product);
-                            // Temporary methods to add a item to cart, delete after detail page is done
-                            context.read<CartProvider>().add(product);
                           },
                           icon: Icon(
                             isFav ? Icons.favorite : Icons.favorite_border,

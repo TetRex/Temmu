@@ -1,5 +1,7 @@
+import 'package:e_commerce_app/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app/models/product_list.dart';
+import 'package:provider/provider.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key, required this.product});
@@ -168,7 +170,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
-                      children: List.generate(widget.product.option.length, (index) {
+                      children: List.generate(widget.product.option.length, (
+                        index,
+                      ) {
                         return GestureDetector(
                           onTap: () {
                             setState(() {
@@ -220,7 +224,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<CartProvider>().add(widget.product);
+                      },
                       child: const Text(
                         "Add to cart",
                         style: TextStyle(

@@ -2,6 +2,8 @@ import 'package:e_commerce_app/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_app/models/product_list.dart';
 import 'package:provider/provider.dart';
+import 'package:e_commerce_app/cart.dart';
+
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key, required this.product});
@@ -226,6 +228,15 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       ),
                       onPressed: () {
                         context.read<CartProvider>().add(widget.product);
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                                const Cart(),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
+                          ),
+                        );
                       },
                       child: const Text(
                         "Add to cart",

@@ -18,6 +18,13 @@ class CartProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+// Removes all items from the cart.
+  void removeItem(int productId) {
+    _items.removeWhere((item) => item.id == productId);
+    // This call tells the widgets that are listening to this model to rebuild.
+    notifyListeners();
+  }
   // Removes all items from the cart.
   void removeAll() {
     _items.clear();

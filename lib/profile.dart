@@ -23,18 +23,26 @@ class SettingRow extends StatelessWidget {
           shadowColor: Colors.transparent,
           overlayColor: bgcolor,
           backgroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         ),
         onPressed: () => showNotReadySnackBar(context),
-        child: Row(
-          mainAxisSize: MainAxisSize.min, // Important: Don't expand full width
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageIcon(AssetImage(iconPath), size: 30, color: Colors.black),
-            SizedBox(width: 10),
-            Text(
-              text,
-              style: GoogleFonts.interTight(color: Colors.black, fontSize: 30),
+            Container(height: 1, width: double.infinity, color: buttoncolor),
+            SizedBox(height: 20),
+            Row(
+              mainAxisSize: MainAxisSize.min, // Important: Don't expand full width
+              children: [
+                ImageIcon(AssetImage(iconPath), size: 30, color: Colors.black),
+                SizedBox(height: 1, width: 20),
+                Text(
+                  text,
+                  style: GoogleFonts.interTight(color: Colors.black, fontSize: 20),
+                ),
+              ],
             ),
           ],
         ),

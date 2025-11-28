@@ -149,7 +149,7 @@ class _ProductCardState extends State<ProductCard> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(width: 8),
+                        const SizedBox(width: 7),
                         if (product.oldPrice != null)
                           Text(
                             '${product.oldPrice!.toStringAsFixed(2)}€',

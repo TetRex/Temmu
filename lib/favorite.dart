@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/components/bottombar.dart';
 import 'package:e_commerce_app/components/empty.dart';
+import 'package:e_commerce_app/product_detail.dart';
 import 'package:e_commerce_app/providers/favorites_provider.dart';
 import 'package:e_commerce_app/components/snackbar.dart';
 import 'package:e_commerce_app/models/product_list.dart';
@@ -18,7 +19,17 @@ class FavoriteCard extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return GestureDetector(
-      onTap: () => showNotReadySnackBar(context),
+      onTap: () {
+        Navigator.push(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation1, animation2) =>
+                ProductDetailsPage(product: product),
+            transitionDuration: Duration.zero,
+            reverseTransitionDuration: Duration.zero,
+          ),
+        );
+      },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(

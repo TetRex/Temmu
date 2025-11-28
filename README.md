@@ -2,7 +2,7 @@
 Temmu is an E-Commerce app for User Interface course project, where you can buy clothing, shoes, bags and electrical appliance.
 Mobile oriented,  works for both iOS and Android.
 
-[Example picture](assets/images/example_frame.jpg)
+![Example picture](assets/images/example_frame.jpg)
 
 Figma link: https://www.figma.com/community/file/1138923829121049036/e-commerce-mobile-app
 
